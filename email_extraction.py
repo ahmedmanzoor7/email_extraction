@@ -22,6 +22,8 @@ def extract_emails(url):
     time.sleep(5)
     
     page_source = driver.page_source
+
+    driver.close()
     
     soup = BeautifulSoup(page_source, 'html.parser')
     text = soup.get_text(separator=" ")
@@ -31,7 +33,7 @@ def extract_emails(url):
     emails = email_pattern.findall(text)
     
     unique_emails = list(set(emails))
-    
+
     return unique_emails
 
 def main():
