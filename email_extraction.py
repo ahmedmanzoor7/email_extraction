@@ -1,12 +1,9 @@
-from ssl import Options
 #import requests
-from bs4 import BeautifulSoup
-import re
-from bs4 import BeautifulSoup
 import re
 import streamlit as st
 from selenium import webdriver
 from bs4 import BeautifulSoup
+from selenium.webdriver.chrome.options import OptionsS
 import re
 import time
 
