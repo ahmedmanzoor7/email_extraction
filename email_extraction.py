@@ -4,7 +4,7 @@ from ssl import Options
 import streamlit as st
 from selenium import webdriver
 from bs4 import BeautifulSoup
-from selenium.webdriver.chrome.options import OptionsS
+from selenium.webdriver.chrome.options import Options
 import re
 import time
 
