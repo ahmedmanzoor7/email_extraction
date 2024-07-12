@@ -49,6 +49,7 @@ def main():
                 st.success(f"Found {len(emails)} email(s):")
                 for email in emails:
                     st.write(email)
+                driver.quit()    
             else:
                 st.warning("No emails found on the page.")
         else:
