@@ -7,8 +7,6 @@ from bs4 import BeautifulSoup
 from selenium.webdriver.chrome.options import Options
 import time
 from urllib.parse import urljoin, urlparse
-
-Set up Selenium WebDriver (using Chrome in this example)
 chrome_options = Options()
 chrome_options.add_argument("--headless")  
 chrome_options.add_argument("--disable-gpu")
