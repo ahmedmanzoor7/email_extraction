@@ -1,11 +1,8 @@
-#import requests
 import re
-from ssl import Options
 import streamlit as st
 from selenium import webdriver
 from bs4 import BeautifulSoup
 from selenium.webdriver.chrome.options import Options
-import re
 import time
 
 # Set up Selenium WebDriver (using Chrome in this example)
@@ -27,7 +24,7 @@ def extract_emails(url):
     page_source = driver.page_source
     
     soup = BeautifulSoup(page_source, 'html.parser')
-    text = soup.get_text()
+    text = soup.get_text(separator=" ")
 
     email_pattern = re.compile(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b')
     
