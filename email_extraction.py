@@ -81,9 +81,8 @@ def extract_emails(url):
 
 def main():
    st.title("Email Extractor from URL")
-   depth = st.text_input("Enter the level")
    start_url = st.text_input("Enter the URL")
-   all_links = crawl(start_url,depth)
+   all_links = crawl(start_url)
    list(all_links)
    all_links = list(all_links)
    new_links= []
