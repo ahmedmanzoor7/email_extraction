@@ -82,7 +82,7 @@ def extract_emails(url):
 def main():
    st.title("Email Extractor from URL")
    start_url = st.text_input("Enter the URL")
-   depth = st.text_input("Enter an level:")
+   depth = st.text_input("Enter the  level:")
    if depth:
         try:
 
