@@ -24,7 +24,7 @@ def get_all_links(url):
         driver = webdriver.Chrome(options=chrome_options)
         driver.get(url)
         page_source = driver.page_source
-
+        driver.close()
 
         soup = BeautifulSoup(page_source, "html.parser")
         for a_tag in soup.findAll("a"):
@@ -81,29 +81,6 @@ def extract_emails(url):
     unique_emails = list(set(emails))
 
     return unique_emails
-# # Path to your ChromeDriver
-# driver = webdriver.Chrome(options=chrome_options)
-
-# # Function to extract emails from a webpage
-# def extract_emails(url):
-#     driver.get(url)
-    
-#     time.sleep(5)
-    
-#     page_source = driver.page_source
-
-#     driver.close()
-    
-#     soup = BeautifulSoup(page_source, 'html.parser')
-#     text = soup.get_text(separator=" ")
-
-#     email_pattern = re.compile(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b')
-    
-#     emails = email_pattern.findall(text)
-    
-#     unique_emails = list(set(emails))
-
-#     return unique_emails
 
 def main():
    st.title("Email Extractor from URL")
