@@ -95,11 +95,11 @@ def main():
                 for i in range(len(all_links)):
                     if start_url in list(all_links)[i]:
                         new_links.append(all_links[i])
-                    if new_links:
-                        emails = []
-                        for urls in new_links:
-                            email = extract_emails(urls)
-                            emails += email
+                if new_links:
+                    emails = []
+                    for urls in new_links:
+                        email = extract_emails(urls)
+                        emails += email
                         
                         if emails:
                             st.success(f"Found {len(emails)} email(s):")
