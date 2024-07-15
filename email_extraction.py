@@ -81,35 +81,29 @@ def extract_emails(url):
 
 def main():
    st.title("Email Extractor from URL")
+   depth = st.text_input("Enter the level")
    start_url = st.text_input("Enter the URL")
-   depth = st.text_input("Enter the  level:")
-   if depth:
-        try:
-
-            depth=int(depth)
-            if st.button("Extract Emails"):
-                all_links = crawl(start_url,depth)
-                list(all_links)
-                all_links = list(all_links)
-                new_links= []
-                for i in range(len(all_links)):
-                    if start_url in list(all_links)[i]:
-                        new_links.append(all_links[i])
-                if new_links:
-                    emails = []
-                    for urls in new_links:
-                        email = extract_emails(urls)
-                        emails += email
-                        
-                        if emails:
-                            st.success(f"Found {len(emails)} email(s):")
-                            for email in emails:
-                                st.write(email)   
-                        else:
-                            st.warning("No emails found on the page.")
-            else:
-                st.warning("Please enter a URL.")
-        except ValueError:
-            st.error("Please enter a valid integer")               
+   all_links = crawl(start_url,depth)
+   list(all_links)
+   all_links = list(all_links)
+   new_links= []
+   for i in range(len(all_links)):
+       if start_url in list(all_links)[i]:
+           new_links.append(all_links[i])
+   if st.button("Extract Emails"):
+       if new_links:
+           emails = []
+           for urls in new_links:
+               email = extract_emails(urls)
+               emails += email
+           
+           if emails:
+               st.success(f"Found {len(emails)} email(s):")
+               for email in emails:
+                   st.write(email)   
+           else:
+               st.warning("No emails found on the page.")
+       else:
+           st.warning("Please enter a URL.")
 if __name__ == "__main__":
     main()
