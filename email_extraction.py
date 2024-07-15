@@ -107,8 +107,8 @@ def main():
                                 st.write(email)   
                         else:
                             st.warning("No emails found on the page.")
-                    else:
-                        st.warning("Please enter a URL.")
+            else:
+                st.warning("Please enter a URL.")
         except ValueError:
             st.error("Please enter a valid integer")               
 if __name__ == "__main__":
