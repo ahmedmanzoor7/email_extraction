@@ -25,7 +25,6 @@ def get_all_links(url):
         driver.get(url)
         page_source = driver.page_source
         driver.close()
-
         soup = BeautifulSoup(page_source, "html.parser")
         for a_tag in soup.findAll("a"):
             href = a_tag.attrs.get("href")
@@ -53,8 +52,6 @@ def crawl(url, max_depth=2):
         for link in to_visit:
             if link not in visited:
                 visited.add(link)
-                #print("hello")
-                driver = webdriver.Chrome(options=chrome_options)
                 new_to_visit.update(get_all_links(link))
         to_visit = new_to_visit - visited
     return visited
@@ -84,7 +81,6 @@ def extract_emails(url):
 
 def main():
    st.title("Email Extractor from URL")
-
    start_url = st.text_input("Enter the URL")
    all_links = crawl(start_url)
    list(all_links)
@@ -94,7 +90,6 @@ def main():
        if start_url in list(all_links)[i]:
            new_links.append(all_links[i])
    if st.button("Extract Emails"):
-       
        if new_links:
            emails = []
            for urls in new_links:
